@@ -1,5 +1,3 @@
-// backend/server.js
-
 const express = require("express");
 const nodemailer = require("nodemailer");
 const cors = require("cors");
@@ -10,7 +8,7 @@ const PORT = process.env.PORT || 5000;
 
 // ✅ CORS: Allow only your frontend domain (update this for production)
 app.use(cors({
-  origin: ["https://portfolio-one-premraj-87.vercel.app", "http://localhost:3000"], // Support both production and development
+  origin: ["https://portfolio-one-premraj-87.vercel.app", "http://localhost:3000"],
   methods: ["POST", "GET"],
   credentials: true,
 }));
@@ -40,7 +38,7 @@ app.post("/send", async (req, res) => {
   }
 
   try {
-    const transporter = nodemailer.createTransporter({
+    const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
         user: process.env.MY_EMAIL,
